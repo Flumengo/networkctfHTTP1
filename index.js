@@ -11,7 +11,8 @@ res.send( 'Tak jednoduchý to nebude' )
 app.get( '/home/flag', ( req, res ) => {
     res.type( 'text/plain' )
     res.locals.ua = req.get('User-Agent')
-    if (res.locals.ua === 'epicbrowser')
+
+    if (res.locals.ua === 'epicbrowser' && req.get('key') === 'supertanjnejkliicbabbyyy')
         res.send( flag )
     else
         res.send( 'No flag for you' )
