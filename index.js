@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 
 const app     = express()
-const port    = process.env.PORT || 25920
+const port    =  25920
 const flag = 'CTF{byl0_t0_t4k_j3dn0duchy}'
 
 app.get( '/' ,(req, res) => {
@@ -27,10 +27,6 @@ app.use( ( req, res ) => {
     res.status( 404 )
     res.send('404 Not found ☕_☕')
 })
-
-app.listen( port ,
-    () => console.log(`Expresso ☕ is on Port ${ port } Ctrl + C to Stop `) 
-)
 
 
 //
@@ -100,9 +96,9 @@ app.get('/spin', (req, res) => {
   res.json({ result: win ? 'win' : 'lose', balance: players[token].balance });
 });
 
-app.listen(port, () => {
-  console.log(`Casino app listening on port ${port}`);
-});
+app.listen( port ,
+  () => console.log(`Expresso ☕ is on Port ${ port } Ctrl + C to Stop `) 
+)
 
 
 
