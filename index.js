@@ -1,6 +1,10 @@
 const express = require( 'express' )
 const crypto = require('crypto');
 const fs = require('fs');
+const fileupload = require('express-fileupload')
+const multer = require('multer');
+const path = require('path');
+
 
 const app     = express()
 const port    =  25920
@@ -21,13 +25,6 @@ app.get( '/home/flag', ( req, res ) => {
         res.send( 'No flag for you' )
  
 })
-
-app.use( ( req, res ) => {
-    res.type( 'text/plain' )
-    res.status( 404 )
-    res.send('404 Not found ☕_☕')
-})
-
 
 //
 // HAXASÍNO 1
@@ -95,6 +92,24 @@ app.get('/spin', (req, res) => {
 
   res.json({ result: win ? 'win' : 'lose', balance: players[token].balance });
 });
+
+
+app.get( '/decoder', ( req, res ) => {
+  res.type( 'text/plain' )
+  res.locals.ua = req.get('User-Agent')
+
+  if (res.locals.ua === 'epicbrowser' && req.get('key') === 'supertanjnejkliicbabbyyy')
+      res.send( flag )
+  else
+      res.send( 'No flag for you' )
+
+})
+
+app.use( ( req, res ) => {
+  res.type( 'text/plain' )
+  res.status( 404 )
+  res.send('404 Not found ☕_☕')
+})
 
 app.listen( port ,
   () => console.log(`Expresso ☕ is on Port ${ port } Ctrl + C to Stop `) 
