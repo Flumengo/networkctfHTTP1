@@ -34,7 +34,7 @@ app.listen( port ,
 
 
 //
-// HAXASÍNO 2
+// HAXASÍNO 1
 //
 
 
@@ -94,7 +94,7 @@ app.get('/spin', (req, res) => {
   savePlayerData(players);
 
   if (players[token].balance >= 1000000) {
-    return res.json({ result: 'win', balance: players[token].balance, flag: 'CTF{g4z1l10n_d011aru}' });
+    return res.json({ result: 'win', balance: players[token].balance, flag: 'CTF{k4s1n0_j3_ch4r1t4}' });
   }
 
   res.json({ result: win ? 'win' : 'lose', balance: players[token].balance });
